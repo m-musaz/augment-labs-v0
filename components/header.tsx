@@ -17,9 +17,9 @@ export default function Header() {
           <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
             Services
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
+          <Link href="/case-studies" className="text-foreground hover:text-primary transition text-sm font-medium">
             Case Studies
-          </a>
+          </Link>
           <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
             Contact
           </a>

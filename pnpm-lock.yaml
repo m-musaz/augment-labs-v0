@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@formspree/react':
-        specifier: ^3.0.0
+        specifier: latest
         version: 3.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@hookform/resolvers':
         specifier: ^3.10.0
