@@ -20,6 +20,9 @@ export default function Header() {
           <Link href="/case-studies" className="text-foreground hover:text-primary transition text-sm font-medium">
             Case Studies
           </Link>
+          <Link href="/about" className="text-foreground hover:text-primary transition text-sm font-medium">
+            About
+          </Link>
           <Link href="/contact" className="text-foreground hover:text-primary transition text-sm font-medium">
             Contact
           </Link>
