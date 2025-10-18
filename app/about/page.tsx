@@ -70,53 +70,95 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CEO Section */}
+        {/* Leadership Section */}
         <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20 border-t border-border">
           <h2 className="text-4xl font-bold text-white mb-12 text-center font-sans">Leadership</h2>
-          <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-12">
-            <div className="grid md:grid-cols-3 gap-12 items-center">
-              <div className="md:col-span-1">
-                <div className="w-48 h-48 bg-gradient-to-br from-primary to-primary/50 rounded-lg flex items-center justify-center">
-                  <div className="text-6xl font-bold text-white font-sans">MM</div>
+          
+          {/* Two Card Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Musa Zulfiqar Card */}
+            <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-8">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="text-4xl font-bold text-white font-sans">MM</div>
                 </div>
-              </div>
-              <div className="md:col-span-2">
-                <h3 className="text-3xl font-bold text-white mb-2 font-sans">Muhammad Musa Zulfiqar</h3>
-                <p className="text-primary font-semibold mb-6 font-sans">CEO & Founder</p>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-white mb-2 font-sans">Muhammad Musa Zulfiqar</h3>
+                  <p className="text-primary font-semibold mb-4 font-sans">CEO & Co-founder</p>
 
-                <div className="space-y-4 mb-8">
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 font-sans">Full Stack + AI Engineer</h4>
-                    <p className="text-gray-400 font-sans">
-                      Upwork Top 3% - Recognized for excellence in full-stack development and AI implementation
-                    </p>
-                  </div>
+                  <div className="space-y-3 mb-6">
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">Full Stack + AI Engineer</h4>
+                      <p className="text-gray-400 text-sm font-sans">
+                        Upwork Top 3% - Recognized for excellence in full-stack development and AI implementation
+                      </p>
+                    </div>
 
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 font-sans">SoloSuit (YC US)</h4>
-                    <p className="text-gray-400 font-sans">Built a Legal RAG chatbot that achieved:</p>
-                    <ul className="text-gray-400 mt-2 space-y-1 ml-4 font-sans">
-                      <li>• 8x higher cross-sale conversion</li>
-                      <li>• 8x revenue share growth</li>
-                    </ul>
-                  </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">SoloSuit (YC US)</h4>
+                      <p className="text-gray-400 text-sm font-sans">Built a Legal RAG chatbot that achieved:</p>
+                      <ul className="text-gray-400 text-sm mt-1 space-y-1 ml-4 font-sans">
+                        <li>• 8x higher cross-sale conversion</li>
+                        <li>• 8x revenue share growth</li>
+                      </ul>
+                    </div>
 
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 font-sans">WebAbility (Canada)</h4>
-                    <p className="text-gray-400 font-sans">
-                      Scaled from $0 → $15K MRR through innovative product development and strategic execution
-                    </p>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">WebAbility (Canada)</h4>
+                      <p className="text-gray-400 text-sm font-sans">
+                        Scaled from $0 → $15K MRR through innovative product development and strategic execution
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <Link
-                  href="/contact"
-                  className="inline-block bg-primary text-white px-8 py-3 rounded-md hover:opacity-90 transition font-semibold font-sans"
-                >
-                  Work With Us
-                </Link>
               </div>
             </div>
+
+            {/* Ume Habiba Card */}
+            <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-8">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="text-4xl font-bold text-white font-sans">UH</div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-white mb-2 font-sans">Ume Habiba</h3>
+                  <p className="text-primary font-semibold mb-4 font-sans">CTO & Co-Founder</p>
+
+                  <div className="space-y-3 mb-6">
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">Full-Stack + AI Engineer</h4>
+                      <p className="text-gray-400 text-sm font-sans">
+                        Upwork Top 10% - Recognized for successfully completing 5 projects in a short span of 4 months.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">TideMRV (Blue-Carbon MRV)</h4>
+                      <p className="text-gray-400 text-sm font-sans">
+                        Built end-to-end AI platform for digital Monitoring, Reporting & Verification of coastal blue-carbon projects with remote sensing and drone imagery integration.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-semibold mb-1 font-sans">Promogoat</h4>
+                      <p className="text-gray-400 text-sm font-sans">
+                        AI social-media campaign plan generator for SMEs and agencies—produces complete marketing strategies ready to launch in minutes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-8">
+            <Link
+              href="/contact"
+              className="inline-block bg-primary text-white px-8 py-3 rounded-md hover:opacity-90 transition font-semibold font-sans"
+            >
+              Work With Us
+            </Link>
           </div>
         </section>
 
