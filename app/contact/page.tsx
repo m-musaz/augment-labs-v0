@@ -3,50 +3,18 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useForm, ValidationError } from '@formspree/react'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    workEmail: "",
-    companyName: "",
-    budgetRange: "$10k-$25k",
-    message: "",
-  })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setFormData({
-        fullName: "",
-        workEmail: "",
-        companyName: "",
-        budgetRange: "$10k-$25k",
-        message: "",
-      })
-      alert("Thank you for your message! We will be in touch soon.")
-    }, 1000)
-  }
+  const [state, handleSubmit] = useForm("movkrozo")
 
   return (
     <main className="min-h-screen bg-background">
       <Header />
 
-      <section className="py-20 px-6 lg:px-8 bg-background">
+      <section className="pt-32 pb-20 px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
@@ -96,88 +64,100 @@ export default function ContactPage() {
 
             {/* Right Side - Form */}
             <div className="border border-[#2a3f5f] rounded-xl p-8 bg-[#0f1b28]">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name */}
-                <div>
-                  <label className="block text-white font-semibold mb-2 font-sans">Full Name</label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="e.g. Alex Chen"
-                    required
-                    className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
-                  />
+              {state.succeeded ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 font-sans">Thank You!</h3>
+                  <p className="text-gray-400 font-sans">We'll be in touch soon.</p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Full Name */}
+                  <div>
+                    <label className="block text-white font-semibold mb-2 font-sans">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="e.g. Alex Chen"
+                      required
+                      className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
+                    />
+                    <ValidationError 
+                      prefix="Name" 
+                      field="name"
+                      errors={state.errors}
+                      className="text-red-400 text-sm mt-1"
+                    />
+                  </div>
 
-                {/* Work Email */}
-                <div>
-                  <label className="block text-white font-semibold mb-2 font-sans">Work Email</label>
-                  <input
-                    type="email"
-                    name="workEmail"
-                    value={formData.workEmail}
-                    onChange={handleChange}
-                    placeholder="you@company.com"
-                    required
-                    className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
-                  />
-                </div>
+                  {/* Work Email */}
+                  <div>
+                    <label className="block text-white font-semibold mb-2 font-sans">Work Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="you@company.com"
+                      required
+                      className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
+                    />
+                    <ValidationError 
+                      prefix="Email" 
+                      field="email"
+                      errors={state.errors}
+                      className="text-red-400 text-sm mt-1"
+                    />
+                  </div>
 
-                {/* Company Name */}
-                <div>
-                  <label className="block text-white font-semibold mb-2 font-sans">Company Name</label>
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                    placeholder="e.g. Northwind Labs"
-                    required
-                    className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
-                  />
-                </div>
+                  {/* Company Name */}
+                  <div>
+                    <label className="block text-white font-semibold mb-2 font-sans">Company Name</label>
+                    <input
+                      type="text"
+                      name="company"
+                      placeholder="e.g. Northwind Labs"
+                      required
+                      className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition font-sans"
+                    />
+                    <ValidationError 
+                      prefix="Company" 
+                      field="company"
+                      errors={state.errors}
+                      className="text-red-400 text-sm mt-1"
+                    />
+                  </div>
 
-                {/* Budget Range */}
-                <div>
-                  <label className="block text-white font-semibold mb-2 font-sans">Budget Range</label>
-                  <select
-                    name="budgetRange"
-                    value={formData.budgetRange}
-                    onChange={handleChange}
-                    className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition font-sans"
+                  {/* Message */}
+                  <div>
+                    <label className="block text-white font-semibold mb-2 font-sans">Your Message</label>
+                    <textarea
+                      name="message"
+                      placeholder="Give us a sense of goals, constraints, and timelines."
+                      required
+                      rows={6}
+                      className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition resize-none font-sans"
+                    />
+                    <ValidationError 
+                      prefix="Message" 
+                      field="message"
+                      errors={state.errors}
+                      className="text-red-400 text-sm mt-1"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full bg-primary hover:bg-[#4a8bc4] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 disabled:opacity-50 font-sans"
                   >
-                    <option>$10k-$25k</option>
-                    <option>$25k-$50k</option>
-                    <option>$50k-$100k</option>
-                    <option>$100k+</option>
-                  </select>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block text-white font-semibold mb-2 font-sans">Your Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Give us a sense of goals, constraints, and timelines."
-                    required
-                    rows={6}
-                    className="w-full bg-[#1a2f42] border border-[#2a3f5f] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition resize-none font-sans"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-[#4a8bc4] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 disabled:opacity-50 font-sans"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-              </form>
+                    {state.submitting ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
