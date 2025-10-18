@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function CaseStudy() {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 bg-background">
@@ -32,9 +34,11 @@ export default function CaseStudy() {
               </div>
             </div>
 
-            <button className="border border-slate-600 text-white px-6 py-3 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-colors font-sans font-medium">
-              View All Case Studies
-            </button>
+            <Link href="/case-studies">
+              <button className="border border-slate-600 text-white px-6 py-3 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-colors font-sans font-medium">
+                View All Case Studies
+              </button>
+            </Link>
           </div>
 
           {/* Right - Chat Mockup */}

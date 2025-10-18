@@ -31,9 +31,11 @@ export default function Hero() {
                   Book a Discovery Call
                 </button>
               </Link>
-              <button className="border border-border text-foreground px-8 py-3 rounded-md hover:bg-card transition font-semibold">
-                View Our Services
-              </button>
+              <Link href="/services">
+                <button className="border border-border text-foreground px-8 py-3 rounded-md hover:bg-card transition font-semibold">
+                  View Our Services
+                </button>
+              </Link>
             </div>
           </div>
 

@@ -14,15 +14,15 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-12">
-          <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
+          <Link href="/services" className="text-foreground hover:text-primary transition text-sm font-medium">
             Services
-          </a>
+          </Link>
           <Link href="/case-studies" className="text-foreground hover:text-primary transition text-sm font-medium">
             Case Studies
           </Link>
-          <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
+          <Link href="/contact" className="text-foreground hover:text-primary transition text-sm font-medium">
             Contact
-          </a>
+          </Link>
           <Link href="/blog" className="text-foreground hover:text-primary transition text-sm font-medium">
             Blog
           </Link>
