@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const blogPosts = [
   {
@@ -68,61 +70,67 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-16">
-          <h1 className="text-5xl font-bold text-foreground mb-4">Blog</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Insights, tips, and stories about AI, web development, and building scalable products.
-          </p>
-        </div>
+    <main className="min-h-screen bg-background">
+      <Header />
 
-        {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.id}`}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-lg"
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-muted">
-                <img
-                  src={post.image || "/placeholder.svg"}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+      <section className="pt-32 pb-20 px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="mb-16">
+            <h1 className="text-5xl font-bold text-foreground mb-4">Blog</h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Insights, tips, and stories about AI, web development, and building scalable products.
+            </p>
+          </div>
 
-              {/* Content */}
-              <div className="p-6">
-                {/* Category and Read Time */}
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-muted-foreground">{post.readTime}</span>
+          {/* Blog Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.id}`}
+                className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-lg"
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-muted">
+                  <img
+                    src={post.image || "/placeholder.svg"}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
-                {/* Title */}
-                <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition line-clamp-2">
-                  {post.title}
-                </h2>
+                {/* Content */}
+                <div className="p-6">
+                  {/* Category and Read Time */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                  </div>
 
-                {/* Excerpt */}
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
+                  {/* Title */}
+                  <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition line-clamp-2">
+                    {post.title}
+                  </h2>
 
-                {/* Date and Arrow */}
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-xs text-muted-foreground">{post.date}</span>
-                  <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                  {/* Excerpt */}
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
+
+                  {/* Date and Arrow */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <span className="text-xs text-muted-foreground">{post.date}</span>
+                    <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </main>
   )
 }

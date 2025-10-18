@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { useParams } from "next/navigation"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const blogPostsData: Record<string, any> = {
   "ai-future-2025": {
@@ -175,63 +177,75 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-foreground mb-4">Post not found</h1>
-          <Link href="/blog" className="text-primary hover:underline">
-            Back to Blog
-          </Link>
-        </div>
+      <main className="min-h-screen bg-background">
+        <Header />
+
+        <section className="pt-32 pb-20 px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl font-bold text-foreground mb-4">Post not found</h1>
+            <Link href="/blog" className="text-primary hover:underline">
+              Back to Blog
+            </Link>
+          </div>
+        </section>
+
+        <Footer />
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        {/* Back Link */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition mb-8"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Blog
-        </Link>
+    <main className="min-h-screen bg-background">
+      <Header />
 
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-              {post.category}
-            </span>
-            <span className="text-sm text-muted-foreground">{post.readTime}</span>
-          </div>
-          <h1 className="text-5xl font-bold text-foreground mb-4">{post.title}</h1>
-          <p className="text-muted-foreground">{post.date}</p>
-        </div>
-
-        {/* Featured Image */}
-        <div className="relative h-96 rounded-lg overflow-hidden mb-12 bg-muted">
-          <img src={post.image || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
-        </div>
-
-        {/* Content */}
-        <div className="prose prose-invert max-w-none mb-12">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} className="text-foreground space-y-6" />
-        </div>
-
-        {/* CTA */}
-        <div className="bg-card border border-border rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-2">Ready to build something great?</h3>
-          <p className="text-muted-foreground mb-6">Let's discuss how we can help bring your ideas to life.</p>
+      <section className="pt-32 pb-20 px-6 lg:px-8 bg-background">
+        <div className="max-w-4xl mx-auto">
+          {/* Back Link */}
           <Link
-            href="/contact"
-            className="inline-block bg-primary text-white px-8 py-3 rounded-md hover:opacity-90 transition font-semibold"
+            href="/blog"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition mb-8"
           >
-            Book a Discovery Call
+            <ArrowLeft className="w-4 h-4" />
+            Back to Blog
           </Link>
+
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                {post.category}
+              </span>
+              <span className="text-sm text-muted-foreground">{post.readTime}</span>
+            </div>
+            <h1 className="text-5xl font-bold text-foreground mb-4">{post.title}</h1>
+            <p className="text-muted-foreground">{post.date}</p>
+          </div>
+
+          {/* Featured Image */}
+          <div className="relative h-96 rounded-lg overflow-hidden mb-12 bg-muted">
+            <img src={post.image || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
+          </div>
+
+          {/* Content */}
+          <div className="prose prose-invert max-w-none mb-12">
+            <div dangerouslySetInnerHTML={{ __html: post.content }} className="text-foreground space-y-6" />
+          </div>
+
+          {/* CTA */}
+          <div className="bg-card border border-border rounded-lg p-8 text-center">
+            <h3 className="text-2xl font-bold text-foreground mb-2">Ready to build something great?</h3>
+            <p className="text-muted-foreground mb-6">Let's discuss how we can help bring your ideas to life.</p>
+            <Link
+              href="/contact"
+              className="inline-block bg-primary text-white px-8 py-3 rounded-md hover:opacity-90 transition font-semibold"
+            >
+              Book a Discovery Call
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </main>
   )
 }
