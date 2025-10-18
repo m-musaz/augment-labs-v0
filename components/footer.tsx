@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a2f42] border-t border-[#2a3f5f]">
+    <footer className="bg-background/95 backdrop-blur-sm border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-[#2a3f5f] pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm font-sans mb-4 sm:mb-0">© 2025 Augment Labs. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-500 hover:text-[#5b9fd8] transition-colors text-sm font-sans">
