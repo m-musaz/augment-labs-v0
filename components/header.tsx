@@ -23,9 +23,9 @@ export default function Header() {
           <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
             Contact
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition text-sm font-medium">
+          <Link href="/blog" className="text-foreground hover:text-primary transition text-sm font-medium">
             Blog
-          </a>
+          </Link>
         </nav>
 
         <Link
