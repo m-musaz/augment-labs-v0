@@ -75,7 +75,7 @@ export default function AboutPage() {
           <h2 className="text-4xl font-bold text-white mb-12 text-center font-sans">Leadership</h2>
           
           {/* Two Card Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
             {/* Musa Zulfiqar Card */}
             <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-8">
               <div className="flex flex-col md:flex-row gap-6 items-start">
