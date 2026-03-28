@@ -84,7 +84,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-white mb-2 font-sans">Muhammad Musa Zulfiqar</h3>
-                  <p className="text-primary font-semibold mb-4 font-sans">CEO & Co-Founder</p>
+                  <p className="text-primary font-semibold mb-4 font-sans">CEO & Founder</p>
 
                   <div className="space-y-3 mb-6">
                     <div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </div>
 
             {/* Ume Habiba Card */}
-            <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-8">
+            {/* <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-lg p-8">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary/50 rounded-lg flex items-center justify-center flex-shrink-0">
                   <div className="text-4xl font-bold text-white font-sans">UH</div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Call to Action */}
